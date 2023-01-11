@@ -69,7 +69,6 @@ function! minimode#run(mode)
         endif
 
         while !exit
-            normal! :
             echohl ModeMsg
             echon a:mode.message
             echohl NONE
@@ -103,9 +102,8 @@ function! minimode#run(mode)
             endif
         endwhile
 
-        normal! :
+        echon
     catch
-        normal! :
         echohl ErrorMsg
         echom substitute(v:exception, '^[^:]*:', '', '')
         echohl None
